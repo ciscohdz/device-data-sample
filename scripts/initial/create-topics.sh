@@ -9,3 +9,9 @@ kafka-topics \
   --replication-factor 1 \
   --partitions 3 \
   --create
+
+bin/kafka-configs.sh --bootstrap-server kafka-1:9092 \
+  --entity-type topics \
+  --entity-name raw-device-signals \
+  --alter \
+  --add-config compression.type=gzip
